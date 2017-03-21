@@ -141,7 +141,6 @@ B-3: ----> en route
 B-4: ---------> en route  
 B-5: -------> en route
 
-Note that C would not begin executing its tasks until B has finished executing all of its tasks.
 
 ## Main Thread
 
