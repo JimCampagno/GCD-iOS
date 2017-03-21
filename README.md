@@ -345,14 +345,16 @@ I will take an egg sandwich with swiss cheese.
 I will take a hot chocolate.
 ```
 
-That's really cool! Task D (being a good customer), waited her turn while C was taking forever ordering her sandwich. This is the behavior of a serial queue. Here is a table summing this up:
+That's really cool! Task D (being a good customer), waited her turn while C was taking forever ordering her sandwich. This is the behavior of a serial queue. Here is a table summing this up:  
 
-|  Task | When it will execute  | Sync/Async  | Code
+
+|  Task | When it will execute  | Sync/Async  | Code |
 |---|---|---|---|---|
-| A  | First  | async  | print("I will take a cheese sandwich.")
-| B  | When A is complete  | async  |   print("I will take a coffee.")
-| C  | When B is complete  | async  |  sleep(10); print("I will take an egg sandwich with swiss cheese.")
-| D  | When C is complete  | async  |   print("I will take a hot chocolate.")
+| A  | First  | async  | print("I will take a cheese sandwich.") |
+| B  | When A is complete  | async  |   print("I will take a coffee.") |
+| C  | When B is complete  | async  |  sleep(10); print("I will take an egg sandwich with swiss cheese.") |
+| D  | When C is complete  | async  |   print("I will take a hot chocolate.") |
+
 
 You should note that this sleep function happening in Task C does _not_ block the Main Thread. It does not block all threads because it was marked as an asynchronous task. If instead we marked it as synchronous, it would block threads (including the main thread) and freeze our entire app. We will step through this shortly.
 
