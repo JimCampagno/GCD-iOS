@@ -73,7 +73,7 @@ Here's a picture of a horse race in case you've never see a horse race before. S
 <img src="http://i.imgur.com/ubOH8sd.png">
 </p>
 
-If we had 7 tasks that needed to be completed, it would be much faster to have all 7 occur at the same time. It would take a much greater amount of time to have horse 1 run it's race first and only when it has completed its race, horse 2 would then begin and so on until horse 7 finishes her race. You could see how this would take a long time. 
+If we had 7 tasks that needed to be completed, it would be much faster to have all 7 occur at the same time. It would take a much greater amount of time to have horse 1 run it's race first and only when it has completed its race, horse 2 would then begin and so on until horse 7 finishes her race. You could see how this would take a long time.
 
 
 ## Queue
@@ -82,11 +82,11 @@ Lets pretend that we're currently in NYC and we just entered one of the most fam
 
 -X--------------------------  
 
-X represents us being the first on line. Right behind us becomes another person (depicted by O).
+X represents us being the first on line. Right behind us enters another person (depicted by O):
 
 -X-O-------------------------  
 
-A third person walks in (labeled as Z)
+A third person walks in (labeled as Z):
 
 -X-O-Z------------------------  
 
@@ -97,20 +97,14 @@ Still in line: -O-Z------------------------
 
 Z will not be served until O has been served. This is how a queue operates.
 
-We will create three queues labeled as A, B & C. Each of these queues contain some tasks labeled as A-1, A-2 or C-1, C-4, etc.  
+## Serial and Concurrent Queues
+
+We will create two queues labeled as `A` and `B`. Each of these queues contain some tasks labeled as A-1, A-2 or B-1, B-4, etc. A task represents some code that will run (like a `print()` statement). `A` is considered a serial queue and `B` is considered a concurrent queue. Definitions to follow.
 
 A Queue: [A-1, A-2, A-3, A-4, A-5]  
 B Queue: [B-1, B-2, B-3, B-4, B-5]  
-C Queue: [C-1, C-2, C-3, C-4, C-5]
 
-We have three different queues that need to do some work. In what order will these queues execute their tasks? Should A finish through all of its tasks before B begins? If so, does C then wait for B finishes before it fires off. If we were to adhere to these principals, then we would be executing our queues synchronously. One after the other as if they were waiting in a line.
-
-A: ---> en route  
-B:         
-C:  
-
-
-A being a queue, it has multiple tasks that need to be executed. Does it kick off each one one at a time? If so, A would be considered a **serial queue**. This is what a serial queue looks like:
+`A` being a queue, it has multiple tasks that need to be executed. Does it kick off each one.. one at a  time? If so, `A` would be considered a **serial queue**. This is what a serial queue looks like:
 
 A-1: ----> en route  
 A-2:  
@@ -130,7 +124,7 @@ A-3: ----> en route
 A-4:  
 A-5:
 
-If As tasks all ran at the same time, it would be called a **concurrent queue**. It would instead look something like this:
+If `A`s tasks all ran at the same time, it would be called a **concurrent queue**. It would instead look something like this:
 
 A-1: -----> en route  
 A-2: -----------> en route   
@@ -138,13 +132,6 @@ A-3: ----> en route
 A-4: ---------> en route  
 A-5: -------> en route   
 
-
-
-When A has completed all of its tasks (whether or not if it was serial or concurrent queue), B will then begin its tasks. Our queues are being executed synchronously, one after the other.
-
-A: ------------> done    
-B: --> en route         
-C:
 
 Now that B has fired off, we need to ask the same question. Is B a serial or concurrent queue. Depending on the answer of that question is how the tasks within our serial or concurrent queue will fire off. B in this example is a concurrent queue:
 
