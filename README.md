@@ -12,7 +12,7 @@ It's a powerful tool in your tool-belt to be able to break your application into
 
 The numbers 0 through 3 represent separate tasks and they are firing off synchronously, one after the other. 0 starts off and 1 will not start off until 0 is complete. When 0 is complete, 1 will fire off. Note that 1 will not fire off until 0 is finished (done means the task is finished). After 1 is finished, 2 will begin and so on.
 
-Synchronous tasks block. Tasks don't execute at the same time, they execute one after the other.
+This behavior exhibited by synchronous tasks is referred to as blocking. Tasks that force tasks behind them to wait until they are complete are blocking. This forces the tasks to execute one after the other.
 
 ### Synchronous
 
@@ -65,13 +65,15 @@ Synchronous tasks block. Tasks don't execute at the same time, they execute one 
 2  -------------> done   
 3  ------------> en route
 
-Notice how the section asynchronous has all of our tasks fire off at the same time. It's no guarantee which one will finish first and it's not required that all finish at the same time. 0 and 3 finished first while 1 and 3 were still executing. This is referred to as asynchronous. We have the ability to run a lot more tasks because of this. This is what I had meant by a horse race.
+Notice how the section asynchronous has all of our tasks fire off at the same time. It's no guarantee which one will finish first and it's not required that all finish at the same time. 0 and 3 finished first while 1 and 3 were still executing in our example. This is referred to as asynchronous. We have the ability to run a lot more tasks because of this. This is what I had meant by a horse race.
+
+Here's a picture of a horse race in case you've never see a horse race before. Spoiler alert, 7 wins. I actually have no idea.
 
 <p align="center">
 <img src="http://i.imgur.com/ubOH8sd.png">
 </p>
 
-If we had 7 tasks that needed to be completed, it would be much faster to have all 7 occur at the same time. It would take a much greater amount of time to have horse 1 run it's race first and only when it has completed its race, horse 2 would then begin and so on until horse 7 finishes her race.
+If we had 7 tasks that needed to be completed, it would be much faster to have all 7 occur at the same time. It would take a much greater amount of time to have horse 1 run it's race first and only when it has completed its race, horse 2 would then begin and so on until horse 7 finishes her race. You could see how this would take a long time. 
 
 
 ## Queue
