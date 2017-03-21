@@ -228,19 +228,19 @@ Lets put all of this work in a table. Because tables are cool and could help exp
 
 
 
-|  Task | When it will execute  | Sync/Async  | Code
-|---|---|---|---|---|
-| A  | First  | async  | print("I will take a cheese sandwich.")
-| B  | When A is complete  | async  |   print("I will take a coffee.")
-| C  | When B is complete  | async  |   print("I will take an egg sandwich with swiss cheese.")
-| D  | When C is complete  | async  |   print("I will take a hot chocolate.")
+|  Task | When it will execute  | Sync/Async  | Code |
+|---|---|---|---|
+| A  | First  | async  | print("I will take a cheese sandwich.") |
+| B  | When A is complete  | async  |   print("I will take a coffee.") |
+| C  | When B is complete  | async  |   print("I will take an egg sandwich with swiss cheese.") |
+| D  | When C is complete  | async  |   print("I will take a hot chocolate.") |
 
 One of the questions you should be asking is "How are they executing in order when you've added these tasks asynchronously to the queue"? Shouldn't they all be firing of at the same time? This is a good time to differentiate between when a specific task is dispatched to a thread and when it is executed. When a task (block of code) is dispatched, that doesn't mean that it's executed as soon as it's dispatched.
 
 Lets create four different threads and number them from 1-4. These threads represent where our code will be executed (our task) and not the order to which these tasks will be executed. The order is dictated by the queue. And considering that our queue is a serial queue, it will retain the order to which these tasks get executed. The fact that these blocks of code are dispatched asynchronously means that they are dispersed amongst different threads immediately. They are not executed immediately. They execute in the order to which they were added to the queue, because they were added to a serial queue and that's how serial queues work.
 
-| Thread | Task | When Task Will executed
-|---|---|---|---|
+| Thread | Task | When Task Will executed |
+|---|---|---|
 | 1 | B | When A is complete |
 | 2 | A | First |
 | 3 | D | When C is complete |
