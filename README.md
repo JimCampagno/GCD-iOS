@@ -349,7 +349,7 @@ That's really cool! Task D (being a good customer), waited her turn while C was 
 
 
 |  Task | When it will execute  | Sync/Async  | Code |
-|---|---|---|---|---|
+|---|---|---|---|
 | A  | First  | async  | print("I will take a cheese sandwich.") |
 | B  | When A is complete  | async  |   print("I will take a coffee.") |
 | C  | When B is complete  | async  |  sleep(10); print("I will take an egg sandwich with swiss cheese.") |
